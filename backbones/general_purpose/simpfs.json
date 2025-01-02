@@ -1,0 +1,21 @@
+{
+    "simpfs":  {    "install_cmd": ["pip install torchlibrosa",
+                                    "pip install torchinfo"],
+                    "import": ["cd ./SimPFs",
+                               "from main import Audio_Encoder",
+                               "from network import Audio_Frontend, PANNS_Cnn10",
+                               "from pooling import Pooling_layer",
+                               "cd ../"],
+                    "model_init": ["cd ./SimPFs",
+                                   "panns_params = {'sample_rate': 32000, 'window_size': 1024, 'hop_size': 320, 'mel_bins': 64, 'fmin': 50, 'fmax': 14000}",
+                                   "sampler = Pooling_layer(factor=2.)",
+                                   "frontend = Audio_Frontend(**panns_params, sampler=sampler)",
+                                   "backbone = PANNS_Cnn10(pretrained=True)",
+                                   "model = Audio_Encoder(frontend=frontend, backbone=backbone)",
+                                   "cd ../"],
+                    "sample_rate": 32000,
+                    "in_shape": 2,
+                    "embed_fwd": ["y = model(x)",
+                                  "y = y['embedding']"]
+                }
+}

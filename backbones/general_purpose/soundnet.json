@@ -1,0 +1,17 @@
+{
+    "soundnet":    {    "install_cmd": [],
+                        "import": ["cd pytorch-soundnet", 
+                                   "from soundnet import SoundNet",
+                                   "cd ../"],
+                        "model_init": ["cd pytorch-soundnet",
+                                       "model = SoundNet()",
+                                       "model.load_state_dict(torch.load('soundnet8_final.pth'))",
+                                       "cd ../"],
+                        "sample_rate": 44100,
+                        "in_shape": 2,
+                        "in_pre": ["x = x * 256.",
+                                   "x = x.unsqueeze(1).unsqueeze(-1)"],
+                        "embed_fwd": ["y = model(x)",
+                                      "y = y.squeeze(-1)"]
+                    }
+}

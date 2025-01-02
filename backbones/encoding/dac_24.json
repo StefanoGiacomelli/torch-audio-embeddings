@@ -1,0 +1,14 @@
+{
+    "dac":   {  "install_cmd": ["pip install descript-audio-codec"],
+                "import": ["import dac",
+                           "from audiotools import AudioSignal"],
+                "model_init": ["model_path = dac.utils.download(model_type='24khz')",
+                               "model = dac.DAC.load(model_path)"],
+                "sample_rate": 24000,
+                "in_shape": 2,
+                "in_pre": ["x = x.unsqueeze(1)",
+                           "x = model.preprocess(x, 24000)"],
+                "embed_fwd": ["z, codes, latent, _, _ = model.encode(x)",
+                              "y = (z, codes, latent)"]
+                        }
+}

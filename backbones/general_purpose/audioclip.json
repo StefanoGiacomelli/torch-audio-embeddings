@@ -1,0 +1,17 @@
+{
+    "audioclip":    {   "install_cmd": ["pip install pytorch-ignite",
+                                        "pip install visdom",
+                                        "pip install ftfy"],
+                        "import": ["cd AudioCLIP",
+                                   "wget -P ./assets/ https://github.com/AndreyGuzhov/AudioCLIP/releases/download/v0.1/bpe_simple_vocab_16e6.txt.gz",
+                                   "wget -P ./assets/ https://github.com/AndreyGuzhov/AudioCLIP/releases/download/v0.1/AudioCLIP-Full-Training.pt",
+                                   "from model import AudioCLIP",
+                                   "cd ../"],
+                        "model_init": ["model = AudioCLIP(pretrained=f'./AudioCLIP/assets/AudioCLIP-Full-Training.pt')"],
+                        "sample_rate": 44100,
+                        "in_shape": 2,
+                        "in_pre": ["x = x.unsqueeze(1)"],
+                        "embed_fwd": ["((y, _, _), _), _ = model(audio=test_audio)",
+                                      "y = y / torch.linalg.norm(y, dim=-1, keepdim=True)"]
+                    }
+}

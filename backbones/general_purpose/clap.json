@@ -1,0 +1,12 @@
+{
+    "clap":    {   "install_cmd": ["pip install laion-clap"],
+                    "import": ["import librosa",
+                               "import laion_clap"],
+                    "model_init": ["model = laion_clap.CLAP_Module(enable_fusion=False)",
+                                   "model.load_ckpt()"],
+                    "sample_rate": 32000,
+                    "in_shape": 1,
+                    "in_pre": ["x = x.unsqueeze(0)"],
+                    "embed_fwd": ["model.get_audio_embedding_from_data(x=x, use_tensor=True)"]
+                }
+}

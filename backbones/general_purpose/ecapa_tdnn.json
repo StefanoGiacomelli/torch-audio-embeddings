@@ -1,5 +1,5 @@
 {
-    "ecapa_tdnn":   { "install_cmd": ["pip install speechbrain"],
+    "ecapa_tdnn":   {   "install_cmd": ["pip install speechbrain"],
                         "import": ["from speechbrain.inference.classifiers import EncoderClassifier"],
                         "model_init": ["model = EncoderClassifier.from_hparams(source='speechbrain/urbansound8k_ecapa')"],
                         "sample_rate": 16000,
