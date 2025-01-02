@@ -1,0 +1,9 @@
+{
+    "wav2clip":     {   "install_cmd": ["pip install wav2clip"],
+                        "import": ["import wav2clip"],
+                        "model_init": ["model = wav2clip.get_model()"],
+                        "sample_rate": 16000,
+                        "in_shape": 2,
+                        "embed_fwd": ["y = model(x)"]
+                    }
+}

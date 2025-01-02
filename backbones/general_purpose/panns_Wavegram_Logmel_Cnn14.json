@@ -1,0 +1,10 @@
+{
+    "panns_Wavegram_Logmel_Cnn14":  {   "install_cmd": ["pip install panns-AT-inference",
+                                                        "pip install numpy==2.0"],
+                                        "import": ["from panns_AT_inference import AudioTagging"],
+                                        "model_init": ["model = AudioTagging(model_name='Wavegram_Logmel_Cnn14')"],
+                                        "sample_rate": 32000,
+                                        "in_shape": 2,
+                                        "embed_fwd": ["probs, y = model.inference(x)"]
+                                    }
+}

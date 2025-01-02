@@ -1,0 +1,11 @@
+{
+    "encodec_24_6": {   "install_cmd": ["pip install encodec"],
+                        "import": ["from encodec import EncodecModel"],
+                        "model_init": ["model = EncodecModel.encodec_model_24khz()",
+                                       "model.set_target_bandwidth(6.0)"],
+                        "sample_rate": 24000,
+                        "in_shape": 3,
+                        "embed_fwd": ["encoded_frames = model.encode(x)",
+                                      "y = torch.cat([encoded[0] for encoded in encoded_frames], dim=-1)"]
+                    }
+}

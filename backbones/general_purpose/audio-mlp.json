@@ -1,0 +1,9 @@
+{
+    "audio-mlp":    {   "install_cmd": ["pip install ./HEAR-2021-Audio-MLP/."],    
+                        "import": ["from hearaudiomlp.audiomlp import common_api"],
+                        "model_init": ["model = common_api.load_model('./HEAR-2021-Audio-MLP/checkpoints/audiomae.pth')"],
+                        "sample_rate": 16000,
+                        "in_shape": 2,
+                        "embed_fwd": ["y, timestamps = common_api.get_timestamp_embeddings(x, model)"]
+                    }
+}

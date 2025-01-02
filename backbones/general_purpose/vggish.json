@@ -1,0 +1,13 @@
+{
+    "vggish":   {   "install_cmd": ["pip install resampy",
+                                    "pip install numpy==2.0"],
+                    "import": ["from vggish_aux_func import waveform_to_examples"],
+                    "model_init": ["model = torch.hub.load('harritaylor/torchvggish', 'vggish', trust_repo=True)",
+                                   "model.preprocess = False"],
+                    "sample_rate": 16000,
+                    "in_shape": 1,
+                    "in_pre": ["x = waveform_to_examples(x, 16000, return_tensor=True)",
+                               "x.to(device) if torch.cuda.is_available() and device.startswith('cuda:') else x.to('cpu')"],
+                    "embed_fwd": ["y = model(x)"]
+                }
+}

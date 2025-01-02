@@ -1,0 +1,13 @@
+{
+    "torchopenl3_env_mel128_512":   {   "install_cmd": ["pip install numpy==2.0",
+                                                        "pip install setuptools",
+                                                        "pip install torchopenl3",
+                                                        "pip install resampy",
+                                                        "pip install numpy==2.0"],
+                                        "import": ["import torchopenl3"],
+                                        "model_init": ["model = torchopenl3.models.load_audio_embedding_model(input_repr='mel128', content_type='env', embedding_size=512)"],
+                                        "sample_rate": 48000,
+                                        "in_shape": 2,
+                                        "embed_fwd": ["y, timestamps = torchopenl3.get_audio_embedding(audio=x, sr=48000, model=model, center=True, hop_size=0.1, batch_size=x.shape[0], verbose=False)"]
+                                    }
+}

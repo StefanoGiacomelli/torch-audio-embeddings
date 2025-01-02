@@ -1,0 +1,9 @@
+{
+    "ced_tiny": {   "install_cmd": [],
+                    "import": ["from HEAR_CED.hear_ced import ced_tiny"],
+                    "model_init": ["model = ced_tiny.load_model()"],
+                    "sample_rate": 16000,
+                    "in_shape": 2,
+                    "embed_fwd": ["y, timestamps = ced_tiny.get_timestamp_embeddings(x, model)"]
+                }
+}
