@@ -1,0 +1,13 @@
+{
+    "m2d": {    "install_cmd": ["pip install timm einops nnAudio librosa",
+                                "wget https://raw.githubusercontent.com/nttcslab/m2d/master/examples/portable_m2d.py",
+                                "wget https://github.com/nttcslab/m2d/releases/download/v0.1.0/m2d_clap_vit_base-80x608p16x16-240128.zip"],
+                "import": ["import zipfile",
+                           "with zipfile.ZipFile('m2d_clap_vit_base-80x608p16x16-240128.zip', 'r') as zip_ref: zip_ref.extractall('.')",
+                           "from portable_m2d import PortableM2D"],
+                "model_init": ["model = PortableM2D(weight_file='m2d_clap_vit_base-80x608p16x16-240128/checkpoint-300.pth')"],
+                "sample_rate": 16000,
+                "in_shape": 2,
+                "embed_fwd": ["y = = model(x)"]
+            }
+}
