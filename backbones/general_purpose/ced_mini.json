@@ -1,9 +1,17 @@
-{
-    "ced_mini": {   "install_cmd": [],
-                    "import": ["from HEAR_CED.hear_ced import ced_mini"],
-                    "model_init": ["model = ced_mini.load_model()"],
-                    "sample_rate": 16000,
-                    "in_shape": 2,
-                    "embed_fwd": ["y, timestamps = ced_mini.get_timestamp_embeddings(x, model)"]
-                }
+{   "authors": ["Heinrich Dinkel", "Yongqing Wang", "Zhiyong Yan", "Junbo Zhang", "Yujun Wang"],
+    "references": ["https://ieeexplore.ieee.org/document/10446348", "https://github.com/RicherMans/CED"],
+    "downstream_tasks": ["audio_classification"],
+    "install_cmds": ["git clone https://github.com/RicherMans/HEAR_CED.git",
+                     "pip install loguru",
+                     "pip install torchaudio",
+                     "pip install einops"],
+    "import_context": "./HEAR_CED/",
+    "import_cmds": ["import sys",
+                    "import os",
+                    "sys.path.insert(0, os.getcwd())",
+                    "from hear_ced import ced_mini"],
+    "model_init": ["model = ced_mini.load_model()"],
+    "sample_rate": 16000,
+    "in_shape": 2,
+    "embed_fwd": ["y, _ = ced_mini.get_timestamp_embeddings(x, model)"]
 }

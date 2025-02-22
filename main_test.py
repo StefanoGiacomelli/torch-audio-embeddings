@@ -3,7 +3,7 @@ import numpy as np
 from deep_audio_embedding import load_model_dict, install_dependencies, import_pkgs, model_init, pre_proc, compute_embedding
 
 # Parameters
-model_name = 'audioclip'
+model_name = 'm2d'
 device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
 
 
@@ -15,7 +15,7 @@ if __name__ == "__main__":
     model_dict = load_model_dict(config_path)
     
     # Install dependencies
-    install_dependencies(model_dict)
+    #install_dependencies(model_dict)
     
     # Import required packages (handle any import context if present)
     imports = import_pkgs(model_dict)
@@ -24,7 +24,7 @@ if __name__ == "__main__":
     model = model_init(model_dict, imports)
     
     # Synthetic input (e.g., random tensor of 3 batch, mono, 1 sec. each)
-    x = torch.rand((1, int(model_dict['sample_rate'] * 1)))
+    x = torch.rand((3, int(model_dict['sample_rate'] * 1)))
     #x = np.random.rand(3, 1, int(model_dict['sample_rate'] * 1))
     
     # Pre-process the input

@@ -1,11 +1,11 @@
-{
-    "epanns":   {   "install_cmd": ["pip install epanns-inference",
-                                    "pip install numpy==2.0"],
-                    "import": ["from epanns_inference import models"],
-                    "model_init": ["model = models.Cnn14_pruned(pre_trained=True)"],
-                    "sample_rate": 32000,
-                    "in_shape": 2,
-                    "embed_fwd": ["y = model(x)",
-                                  "y = y['embedding']"]
-                }
+{   "authors": ["Arshdeep Singh", "Haohe Liu", "Mark D. Plumbley"],
+    "references": ["https://arxiv.org/abs/2305.18665", "https://github.com/Arshdeep-Singh-Boparai/E-PANNs"],
+    "downstream_tasks": ["audio_classification"],
+    "install_cmds": ["pip install epanns-inference"],
+    "import_cmds": ["from epanns_inference import models"],
+    "model_init": ["model = models.Cnn14_pruned(pre_trained=True)"],
+    "sample_rate": 32000,
+    "in_shape": 2,
+    "embed_fwd": ["y = model(x)",
+                  "y = y['embedding']"]
 }

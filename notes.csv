@@ -2,4 +2,9 @@ model_name, in_shape, test_status, notes
 ast, 1 = samps, passed, NO-BATCH support for PRE_PROC but BATCH SUPPORT for embedding
 audio-mlp, 2 = batch & samps, passed, None
 audioclip, 2 = batch & samps, passed, requires kernel restart after install - model in EVAL for correct inference
-
+byol-a, 3 = batch & chs & samps, passed, requires kernel restart after install
+ced, 2 = batch & samps, passed, None
+clap, 1 = samps, passed, pre-proc add chs=1 NO-BATCH support for embedding
+ecapa_tdnn, 2 = batch & samps, passed, NO CUDA support (model needs to be intiialized on GPU directly)
+epanns, 2 = batch & samps, passed, None
+m2d, 
