@@ -1,18 +1,2 @@
-# Monitor & logging
-tqdm
-loguru
-# Scientific computing
-numpy==2.0
-scipy
-# Neural Networks
+numpy
 torch
-torchaudio
-# Hardware & Consumptions profiling
-psutil
-# Energy & CO2 emissions profiling & web API
-codecarbon==2.4.2
-dash
-dash-bootstrap-components==0.13.1
-fire
-# CI/CD Testing
-pytest

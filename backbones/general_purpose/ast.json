@@ -1,13 +1,15 @@
-{
-    "ast":  {   "install_cmd": ["pip install transformers"],
-                "import": ["from transformers import AutoProcessor, ASTModel"],
-                "model_init": ["model = ASTModel.from_pretrained('MIT/ast-finetuned-audioset-10-10-0.4593')"],
-                "sample_rate": 16000,
-                "in_shape": 1,
-                "in_pre": ["processor = AutoProcessor.from_pretrained('MIT/ast-finetuned-audioset-10-10-0.4593')",
-                           "x = processor(x, sampling_rate=16000, return_tensors='pt')",
-                           "x = x['input_values']"],
-                "embed_fwd": ["y = model(x)",
-                              "y = y.last_hidden_state"]
-            }
+{   "authors": ["Yuan Gong", "Yu-An Chung", "James Glass"],
+    "references": ["https://www.isca-archive.org/interspeech_2021/gong21b_interspeech.html", "https://github.com/YuanGongND/ast"],
+    "downstream_tasks": ["audio_classification"],
+    "install_cmds": ["pip install transformers"],
+    "import_cmds": ["from transformers import AutoProcessor, ASTModel",
+                    "import torch"],
+    "model_init": ["model = ASTModel.from_pretrained('MIT/ast-finetuned-audioset-10-10-0.4593')"],
+    "sample_rate": 16000,
+    "in_shape": 1,
+    "pre_proc": ["processor = AutoProcessor.from_pretrained('MIT/ast-finetuned-audioset-10-10-0.4593')",
+                 "x = processor(x, sampling_rate=16000, return_tensors='pt')",
+                 "x = x['input_values']"],
+    "embed_fwd": ["y = model(x)",
+                  "y = y.last_hidden_state"]
 }

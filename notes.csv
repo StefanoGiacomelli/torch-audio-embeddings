@@ -1,0 +1,3 @@
+model_name, in_shape, test_status, notes
+ast, x = torch.rand((int(model_dict['sample_rate'] * 1))), passed, NO-BATCH support for PRE_PROC but BATCH SUPPORT for embedding
+audio-mlp, x = torch.rand((1, int(model_dict['sample_rate'] * 1))), passed, None
