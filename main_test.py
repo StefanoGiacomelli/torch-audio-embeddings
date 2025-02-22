@@ -8,7 +8,7 @@ device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
 
 
 if __name__ == "__main__":
-    # Path to the JSON configuration (e.g., ast.json)
+    # Format the Path to the JSON configuration
     config_path = f"./backbones/general_purpose/{model_name}.json"
 
     # Load configuration dictionary

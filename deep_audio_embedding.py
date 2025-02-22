@@ -1,4 +1,5 @@
 import os
+import ast
 import json
 import subprocess
 
@@ -56,6 +57,10 @@ def import_pkgs(model_dict):
     Execute import commands specified in 'import_cmds'. If an 'import_context' key is present,
     change the working directory to that folder before executing, and then return to the original directory.
     
+    This function attempts to determine if a command is valid Python code by trying to parse it
+    using the ast module. Valid Python commands are executed using exec() (so commands like
+    "sys.path.insert(0, os.getcwd())" will work), while non-Python commands are executed as shell commands.
+    
     :param model_dict: Dictionary containing model configuration.
     :type model_dict: dict
     :return: A namespace dictionary with the results of the executed import commands.
@@ -64,17 +69,26 @@ def import_pkgs(model_dict):
     import_namespace = {}
     original_dir = os.getcwd()
     context_dir = model_dict.get("import_context", None)
+    
     try:
         if context_dir:
             os.chdir(context_dir)
         cmds = model_dict.get("import_cmds", [])
         for cmd in cmds:
-            if cmd.strip().startswith(("import", "from")):
+            cmd = cmd.strip()
+
+            try:
+                ast.parse(cmd)
+                is_python = True
+            except SyntaxError:
+                is_python = False
+            
+            if is_python:
                 try:
                     exec(cmd, globals(), import_namespace)
                     print(f"Executed Python command: {cmd}")
                 except Exception as e:
-                    raise ImportError(f"Error executing import command '{cmd}': {e}")
+                    raise ImportError(f"Error executing Python command '{cmd}': {e}")
             else:
                 try:
                     subprocess.run(cmd, shell=True, check=True)

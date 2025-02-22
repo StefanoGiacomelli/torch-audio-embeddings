@@ -1,3 +1,5 @@
 model_name, in_shape, test_status, notes
-ast, x = torch.rand((int(model_dict['sample_rate'] * 1))), passed, NO-BATCH support for PRE_PROC but BATCH SUPPORT for embedding
-audio-mlp, x = torch.rand((1, int(model_dict['sample_rate'] * 1))), passed, None
+ast, 1 = samps, passed, NO-BATCH support for PRE_PROC but BATCH SUPPORT for embedding
+audio-mlp, 2 = batch & samps, passed, None
+audioclip, 2 = batch & samps, passed, requires kernel restart after install - model in EVAL for correct inference
+
