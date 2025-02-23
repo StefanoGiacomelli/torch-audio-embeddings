@@ -2,8 +2,8 @@ import torch
 import numpy as np
 from deep_audio_embedding import load_model_dict, install_dependencies, import_pkgs, model_init, pre_proc, compute_embedding
 
-# Parameters
-model_name = 'm2d'
+# Parameters MISSING EFFICIENT_AT (LAST ONE)
+model_name = 'panns_cnn14'
 device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
 
 
@@ -15,7 +15,7 @@ if __name__ == "__main__":
     model_dict = load_model_dict(config_path)
     
     # Install dependencies
-    #install_dependencies(model_dict)
+    install_dependencies(model_dict)
     
     # Import required packages (handle any import context if present)
     imports = import_pkgs(model_dict)
@@ -29,8 +29,8 @@ if __name__ == "__main__":
     
     # Pre-process the input
     x_proc = pre_proc(model_dict, x, imports)
-    print("Pre-processed input shape:", x_proc.shape)
-    
+    print("Pre-processed input shape:", x_proc.shape, x_proc.device)
+
     # Compute the embedding on CPU & GPU
     embedding = compute_embedding(model_dict, model.cpu(), x_proc.cpu(), imports)
     print("Embedding shape (CPU):", embedding.shape, embedding.device)

@@ -1,0 +1,11 @@
+{   "authors": ["Qiuqiang Kong", "Yin Cao", "Turab Iqbal", "Yuxuan Wang", "Wenwu Wang", "Mark D. Plumbley"],
+    "references": ["https://ieeexplore.ieee.org/document/9229505", "https://github.com/qiuqiangkong/audioset_tagging_cnn"],
+    "downstream_tasks": ["audio_classification"],
+    "install_cmds": ["pip install panns-AT-inference",
+                     "pip install numpy==2.0"],
+    "import_cmds": ["from panns_AT_inference import AudioTagging"],
+    "model_init": ["model = AudioTagging(model_name='ResNet38', device='cpu')"],
+    "sample_rate": 32000,
+    "in_shape": 2,
+    "embed_fwd": ["_, y = model.inference(x)"]
+}

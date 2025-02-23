@@ -5,6 +5,9 @@ audioclip, 2 = batch & samps, passed, requires kernel restart after install - mo
 byol-a, 3 = batch & chs & samps, passed, requires kernel restart after install
 ced, 2 = batch & samps, passed, None
 clap, 1 = samps, passed, pre-proc add chs=1 NO-BATCH support for embedding
-ecapa_tdnn, 2 = batch & samps, passed, NO CUDA support (model needs to be intiialized on GPU directly)
+ecapa_tdnn, 2 = batch & samps, passed, NO CUDA support (model needs to be intiialized on GPU directly via 'run_opts')
 epanns, 2 = batch & samps, passed, None
-m2d, 
+m2d, 2 = batch & samps, passed, requires kernel restart after install
+msm-mae, 2 = batch & samps, passed, requires kernel restart after install
+panns, 2 = batch & samps, passed, model needs to be intiialized on GPU directly via device='cuda'
+

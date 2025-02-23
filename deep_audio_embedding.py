@@ -156,7 +156,7 @@ def pre_proc(model_dict, x, import_namespace):
     """
     cmds = model_dict.get("pre_proc", None)
     if not cmds:
-        print("No 'pre_proc' commands found in the model configuration. returning input 'x")
+        print("No 'pre_proc' commands found in the model configuration. returning input 'x'")
         return x  # Return x unchanged if no pre-processing commands are provided.
     
     namespace = {"x": x}
