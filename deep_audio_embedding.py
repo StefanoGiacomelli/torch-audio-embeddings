@@ -1,3 +1,12 @@
+#############################################################################################################
+#                                                                                                           #
+#   Author      : Stefano Giacomelli                                                                        #
+#   Affiliation : PhD candidate, University of L'Aquila (Italy)                                             #
+#   Department  : DISIM - Department of Information Engineering, Computer Science and Mathematics           #
+#   Description : Embedding models parsing functions for audio signals embedding.                           #
+#   Last Update : 2025-02-23                                                                                #
+#                                                                                                           #
+#############################################################################################################
 import os
 import ast
 import json

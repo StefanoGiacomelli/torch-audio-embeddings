@@ -6,6 +6,7 @@ byol-a, 3 = batch & chs & samps, passed, requires kernel restart after install
 ced, 2 = batch & samps, passed, None
 clap, 1 = samps, passed, pre-proc add chs=1 NO-BATCH support for embedding
 ecapa_tdnn, 2 = batch & samps, passed, NO CUDA support (model needs to be intiialized on GPU directly via 'run_opts')
+efficient-at, 2 = batch & samps, passed, it works but GPU acceleration is altered inside the defined get_timestamp_embedding def
 epanns, 2 = batch & samps, passed, None
 m2d, 2 = batch & samps, passed, requires kernel restart after install
 msm-mae, 2 = batch & samps, passed, requires kernel restart after install
@@ -16,4 +17,4 @@ soundnet, 2 = batch & samps, passed, None
 openl3, 2 = batch & samps, passed, None
 vggish, 1 = samps, passed, NO-BATCH support native - is automatically instantiated on available device - numpy input
 wav2clip, 2 = batch & samps, passed, None
-yamnet, 
+yamnet, 2 = batch & samps, passed, None

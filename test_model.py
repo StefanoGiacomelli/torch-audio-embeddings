@@ -4,7 +4,7 @@ from deep_audio_embedding import load_model_dict, install_dependencies, import_p
 
 
 # Parameters MISSING EFFICIENT_AT (LAST ONE)
-model_name = 'yamnet'
+model_name = 'efficient-at_b'
 device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
 
 

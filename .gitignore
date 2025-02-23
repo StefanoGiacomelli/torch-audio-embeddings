@@ -1,0 +1,9 @@
+# Ignore any __pycache__ directories
+__pycache__/
+
+# Ignore any .venv directories
+.venv/
+
+# Ignore two specific files in the root directory
+/requirements_research.txt
+/test_audio_44.1KHz_16bit
