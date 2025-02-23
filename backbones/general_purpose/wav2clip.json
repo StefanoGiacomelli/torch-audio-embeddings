@@ -1,9 +1,10 @@
-{
-    "wav2clip":     {   "install_cmd": ["pip install wav2clip"],
-                        "import": ["import wav2clip"],
-                        "model_init": ["model = wav2clip.get_model()"],
-                        "sample_rate": 16000,
-                        "in_shape": 2,
-                        "embed_fwd": ["y = model(x)"]
-                    }
+{   "authors": ["Ho-Hsiang Wu", "Prem Seetharaman", "Kundan Kumar", "Juan Pablo Bello"],
+    "references": ["https://ieeexplore.ieee.org/document/9747669", "https://github.com/descriptinc/lyrebird-wav2clip"],
+    "downstream_tasks": ["audio_representation"],
+    "install_cmds": ["pip install wav2clip"],
+    "import_cmds": ["import wav2clip"],
+    "model_init": ["model = wav2clip.get_model()"],
+    "sample_rate": 16000,
+    "in_shape": 2,
+    "embed_fwd": ["y = model(x)"]
 }

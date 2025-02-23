@@ -1,16 +1,18 @@
-{
-    "yamnet":   {   "install_cmd": ["pip install torch-vggish-yamnet",
-                                    "pip install numpy==2.0",
-                                    "pip install pyyaml"],
-                    "import": ["from torch_vggish_yamnet import yamnet",
-                               "from torch_vggish_yamnet.input_proc import WaveformToInput"],
-                    "model_init": ["model = yamnet.yamnet(pretrained=True)"],
-                    "sample_rate": 16000,
-                    "in_shape": 2,
-                    "in_pre": ["pre_processor = WaveformToInput()",
-                               "x = x.to(device) if torch.cuda.is_available() and device.startswith('cuda:') else x.to('cpu')",
-                               "pre_processor.to(device) if torch.cuda.is_available() and device.startswith('cuda:') else pre_processor.to('cpu')",
-                               "x = pre_processor(x, 16000)"],
-                    "embed_fwd": ["y, probs = model(x)"]
-                }
+{   "authors": [""],
+    "references": ["", ""],
+    "downstream_tasks": ["audio_classification"],
+
+    "install_cmd": ["pip install torch-vggish-yamnet",
+                    "pip install numpy==2.0",
+                    "pip install pyyaml"],
+    "import": ["from torch_vggish_yamnet import yamnet",
+                "from torch_vggish_yamnet.input_proc import WaveformToInput"],
+    "model_init": ["model = yamnet.yamnet(pretrained=True)"],
+    "sample_rate": 16000,
+    "in_shape": 2,
+    "in_pre": ["pre_processor = WaveformToInput()",
+                "x = x.to(device) if torch.cuda.is_available() and device.startswith('cuda:') else x.to('cpu')",
+                "pre_processor.to(device) if torch.cuda.is_available() and device.startswith('cuda:') else pre_processor.to('cpu')",
+                "x = pre_processor(x, 16000)"],
+    "embed_fwd": ["y, probs = model(x)"]
 }

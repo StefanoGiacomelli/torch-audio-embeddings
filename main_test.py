@@ -4,7 +4,7 @@ from deep_audio_embedding import load_model_dict, install_dependencies, import_p
 
 
 # Parameters MISSING EFFICIENT_AT (LAST ONE)
-model_name = 'vggish'
+model_name = 'yamnet'
 device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
 
 
@@ -25,8 +25,8 @@ if __name__ == "__main__":
     model = model_init(model_dict, imports)
     
     # Synthetic input (e.g., random tensor of 3 batch, mono, 1 sec. each)
-    x = torch.rand((3, int(model_dict['sample_rate'] * 1)))
-    #x = np.random.rand(3, 1, int(model_dict['sample_rate'] * 1))
+    x = torch.rand((3, int(model_dict['sample_rate'] * 1))) * 2 - 1
+    #x = np.random.rand(int(model_dict['sample_rate'] * 1)) * 2 - 1
     
     # Pre-process the input
     x_proc = pre_proc(model_dict, x, imports)

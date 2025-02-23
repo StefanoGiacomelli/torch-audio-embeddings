@@ -1,13 +1,19 @@
-{
-    "vggish":   {   "install_cmd": ["pip install resampy",
-                                    "pip install numpy==2.0"],
-                    "import": ["from vggish_aux_func import waveform_to_examples"],
-                    "model_init": ["model = torch.hub.load('harritaylor/torchvggish', 'vggish', trust_repo=True)",
-                                   "model.preprocess = False"],
-                    "sample_rate": 16000,
-                    "in_shape": 1,
-                    "in_pre": ["x = waveform_to_examples(x, 16000, return_tensor=True)",
-                               "x.to(device) if torch.cuda.is_available() and device.startswith('cuda:') else x.to('cpu')"],
-                    "embed_fwd": ["y = model(x)"]
-                }
+{   "authors": ["Shawn Hershey", "Sourish Chaudhuri", "Daniel P. W. Ellis", "Jort F. Gemmeke", "Aren Jansen", "R. Channing Moore", "Manoj Plakal", "Devin Platt", "Rif A. Saurous", "Bryan Seybold", "Malcolm Slaney", "Ron J. Weiss", "Kevin Wilson"],
+    "references": ["https://ieeexplore.ieee.org/document/7952132", "https://github.com/tensorflow/models/tree/master/research/audioset/vggish"],
+    "downstream_tasks": ["audio_classification"],
+    "install_cmds": ["pip install resampy",
+                     "pip install numpy==2.1",
+                     "pip install soundfile"],
+    "import_context": "./assets",
+    "import_cmds": ["import sys",
+                    "import os",
+                    "sys.path.insert(0, os.getcwd())",
+                    "import torch",
+                    "from vggish_aux_func import waveform_to_examples"],
+    "model_init": ["model = torch.hub.load('harritaylor/torchvggish', 'vggish', trust_repo=True)",
+                   "model.preprocess = False"],
+    "sample_rate": 16000,
+    "in_shape": 1,
+    "pre_proc": ["x = waveform_to_examples(x, 16000, return_tensor=True)"],
+    "embed_fwd": ["y = model(x)"]
 }

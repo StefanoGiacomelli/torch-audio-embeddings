@@ -14,6 +14,6 @@ passt, 2 = batch & samps, passed, it works but GPU acceleration is altered insid
 simpfs, 2 = batch & samps, passed, requires kernel restart after install
 soundnet, 2 = batch & samps, passed, None
 openl3, 2 = batch & samps, passed, None
-vggish,
-wav2clip,
-yamnet,
+vggish, 1 = samps, passed, NO-BATCH support native - is automatically instantiated on available device - numpy input
+wav2clip, 2 = batch & samps, passed, None
+yamnet, 
