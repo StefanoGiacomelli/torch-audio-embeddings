@@ -27,7 +27,7 @@ import numpy as np
 from scipy.stats import iqr, skew, kurtosis
 import torch
 
-from audio_embeddings import load_model_config, package_install_and_import, model_init, pre_process_input, compute_embedding
+from audio_embeddings_OLD import load_model_config, package_install_and_import, model_init, pre_process_input, compute_embedding
 from utils import set_seeds, test_input, HiddenPrints, debug_log
 
 

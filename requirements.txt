@@ -1,2 +1,18 @@
+# Computation
 numpy
+scipy
 torch
+
+# Monitor & logging
+tqdm
+loguru
+
+# Profiling
+psutil
+codecarbon==2.4.2
+dash
+dash-bootstrap-components==0.13.1
+fire
+
+# CI/CD Testing
+pytest

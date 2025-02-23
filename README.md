@@ -1,2 +1,1 @@
-# torch-audio-embeddings
-Torch-Audio-Embeddings (TAE) Official Repository
+# Torch-(Deep)-Audio-Embedding Official Repository
