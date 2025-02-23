@@ -1,0 +1,12 @@
+{   "authors": ["Khaled Koutini", "Jan Schlüter", "Hamid Eghbal-zadeh", "Gerhard Widmer"],
+    "references": ["https://www.isca-archive.org/interspeech_2022/koutini22_interspeech.html", "https://github.com/kkoutini/passt_hear21"],
+    "downstream_tasks": ["audio_classification"],
+    "install_cmds": ["pip install hear21passt"],
+    "import_cmds": ["from hear21passt.base2levelmel import get_concat_2levelmel_model, get_model_passt, get_timestamp_embeddings",
+                    "from hear21passt.models.preprocess import AugmentMelSTFT"],
+    "model_init": ["model = get_concat_2levelmel_model(mode='embed_only')", 
+                   "model.net = get_model_passt(arch='passt_l_kd_p16_128_ap47')"],
+    "sample_rate": 32000,
+    "in_shape": 2,
+    "embed_fwd": ["y, _ = get_timestamp_embeddings(x, model)"]
+}

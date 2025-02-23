@@ -2,8 +2,9 @@ import torch
 import numpy as np
 from deep_audio_embedding import load_model_dict, install_dependencies, import_pkgs, model_init, pre_proc, compute_embedding
 
+
 # Parameters MISSING EFFICIENT_AT (LAST ONE)
-model_name = 'panns_cnn14'
+model_name = 'vggish'
 device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
 
 
