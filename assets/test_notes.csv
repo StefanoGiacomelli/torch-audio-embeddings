@@ -18,3 +18,10 @@ openl3, 2 = batch & samps, passed, None
 vggish, 1 = samps, passed, NO-BATCH support native - is automatically instantiated on available device - numpy input
 wav2clip, 2 = batch & samps, passed, None
 yamnet, 2 = batch & samps, passed, None
+
+hubert, 2 = batch & samps, passed, None
+wav2vec2, 2 = batch & samps, passed, None
+wavlm, 2 = batch & samps, passed, None
+
+dac,2 = batch & samps,passed,None
+encodec,

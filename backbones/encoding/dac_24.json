@@ -1,14 +1,17 @@
-{
-    "dac":   {  "install_cmd": ["pip install descript-audio-codec"],
-                "import": ["import dac",
-                           "from audiotools import AudioSignal"],
-                "model_init": ["model_path = dac.utils.download(model_type='24khz')",
-                               "model = dac.DAC.load(model_path)"],
-                "sample_rate": 24000,
-                "in_shape": 2,
-                "in_pre": ["x = x.unsqueeze(1)",
-                           "x = model.preprocess(x, 24000)"],
-                "embed_fwd": ["z, codes, latent, _, _ = model.encode(x)",
-                              "y = (z, codes, latent)"]
-                        }
+{   "authors": ["Rithesh Kumar", "Prem Seetharaman", "Alejandro Luebs", "Ishaan Kumar", "Kundan Kumar"],
+    "references": ["https://dl.acm.org/doi/10.5555/3666122.3667336", "https://github.com/descriptinc/descript-audio-codec"],
+    "downstream_tasks": ["audio_compression"],
+    "install_cmds": ["pip install descript-audio-codec"],
+    "import_cmds": ["import dac",
+                    "from audiotools import AudioSignal"],
+    "model_init": ["model_path = dac.utils.download(model_type='24khz')",
+                   "model = dac.DAC.load(model_path)"],
+    "sample_rate": 16000,
+    "in_shape": 2,
+    "pre_proc": ["model_path = dac.utils.download(model_type='24khz')",
+                 "model = dac.DAC.load(model_path)",
+                 "x = x.unsqueeze(1)",
+                 "x = model.preprocess(x, 24000)"],
+    "embed_fwd": ["z, codes, latent, _, _ = model.encode(x)",
+                  "y = (z, codes, latent)"]
 }

@@ -1,11 +1,13 @@
-{
-    "encodec_48_3": {   "install_cmd": ["pip install encodec"],
-                        "import": ["from encodec import EncodecModel"],
-                        "model_init": ["model = EncodecModel.encodec_model_48khz()", 
-                                       "model.set_target_bandwidth(3.0)"],
-                        "sample_rate": 48000,
-                        "in_shape": 3,
-                        "embed_fwd": ["encoded_frames = model.encode(x)",
-                                      "y = torch.cat([encoded[0] for encoded in encoded_frames], dim=-1)"]
-                    }
+{   "authors": ["Alexandre Défossez", "Jade Copet", "Gabriel Synnaeve", "Yossi Adi"],
+    "references": ["https://arxiv.org/abs/2210.13438", "https://github.com/facebookresearch/encodec"],
+    "downstream_tasks": ["audio_compression"],
+    "install_cmds": ["pip install encodec"],
+    "import_cmds": ["import torch",
+                    "from encodec import EncodecModel"],
+    "model_init": ["model = EncodecModel.encodec_model_48khz()",
+                   "model.set_target_bandwidth(3.0)"],
+    "sample_rate": 48000,
+    "in_shape": 3,
+    "embed_fwd": ["encoded_frames = model.encode(x)",
+                  "y = torch.cat([encoded[0] for encoded in encoded_frames], dim=-1)"]
 }
