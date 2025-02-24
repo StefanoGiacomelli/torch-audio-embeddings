@@ -1,10 +1,11 @@
-{
-    "wavlm_large":  {   "install_cmd": ["pip install torchaudio"],
-                        "import": ["import torchaudio"],
-                        "model_init": ["model = torchaudio.pipelines.WAVLM_LARGE.get_model()"],
-                        "sample_rate": 16000,
-                        "in_shape": 2,
-                        "embed_fwd": ["y = model.extract_features(x)",
-                                      "y = y[-2][0]"]
-                    }
+{   "authors": ["Sanyuan Chen", "Chengyi Wang", "Zhengyang Chen", "Yu Wu", "Shujie Liu", "Zhuo Chen"],
+    "references": ["https://ieeexplore.ieee.org/abstract/document/9814838", "https://pytorch.org/audio/0.10.0/pipelines.html"],
+    "downstream_tasks": ["speech_recognition"],
+    "install_cmds": ["pip install torchaudio"],
+    "import_cmds": ["import torchaudio"],
+    "model_init": ["model = torchaudio.pipelines.WAVLM_LARGE.get_model()"],
+    "sample_rate": 16000,
+    "in_shape": 2,
+    "embed_fwd": ["y = model.extract_features(x)",
+                  "y = y[-2][0]"]
 }

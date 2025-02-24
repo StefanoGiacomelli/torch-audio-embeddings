@@ -1,10 +1,11 @@
-{
-    "wav2vec2_xlsr_1b": {   "install_cmd": ["pip install torchaudio"],
-                            "import": ["import torchaudio"],
-                            "model_init": ["model = torchaudio.pipelines.WAV2VEC2_XLSR_1B.get_model()"],
-                            "sample_rate": 16000,
-                            "in_shape": 2,
-                            "embed_fwd": ["y = model.extract_features(x)",
-                                          "y = y[-2][0]"]
-                        }
+{   "authors": ["Alexei Baevski", "Yuhao Zhou", "Abdelrahman Mohamed", "Michael Auli"],
+    "references": ["https://proceedings.neurips.cc/paper_files/paper/2020/hash/92d1e1eb1cd6f9fba3227870bb6d7f07-Abstract.html", "https://pytorch.org/audio/0.10.0/pipelines.html"],
+    "downstream_tasks": ["speech_recognition"],
+    "install_cmds": ["pip install torchaudio"],
+    "import_cmds": ["import torchaudio"],
+    "model_init": ["model = torchaudio.pipelines.WAV2VEC2_XLSR_1B.get_model()"],
+    "sample_rate": 16000,
+    "in_shape": 2,
+    "embed_fwd": ["y = model.extract_features(x)",
+                  "y = y[-2][0]"]
 }
