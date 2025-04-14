@@ -23,5 +23,5 @@ hubert, 2 = batch & samps, passed, None
 wav2vec2, 2 = batch & samps, passed, None
 wavlm, 2 = batch & samps, passed, None
 
-dac,2 = batch & samps,passed,None
-encodec,
+dac, 2 = batch & samps, passed, None
+encodec, 3 = batch & chs & samps, passed, chs=1 --> 24KHz chs=2 --> 48KHz
